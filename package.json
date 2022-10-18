@@ -1,31 +1,36 @@
 {
-  "name": "subql-dictionary",
+  "name": "sora-subquery-dictionary",
   "version": "1.0.0",
-  "description": "A SubQuery Dictionary Project that provides increased indexing speed to all projects",
+  "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "subql build",
+    "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
-    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
+    "generate:defs": "ts-node --skip-project node_modules/.bin/polkadot-types-from-defs --package sora/api-interfaces --input ./src/api-interfaces/",
+    "generate:meta": "ts-node --skip-project node_modules/.bin/polkadot-types-from-chain --package sora/api-interfaces --endpoint ./src/api-interfaces/sora.json --output ./src/api-interfaces"
   },
-  "homepage": "https://github.com/subquery/subql-dictionary",
-  "repository": "github:subquery/subql-dictionary",
+  "homepage": "https://github.com/subquery/subql-starter",
+  "repository": "github:subquery/subql-starter",
   "files": [
     "dist",
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "SubQuery Network",
+  "author": "Soramitsu",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polkadot/api": "^8",
-    "@subql/types": "latest",
-    "typescript": "^4.1.3",
-    "@subql/cli": "latest"
+    "@polkadot/typegen": "^4.9.2",
+    "@subql/cli": "0.23.0",
+    "@subql/node": "0.23.1",
+    "@subql/types": "^0.14.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^4.1.3"
   },
-  "resolutions": {
-    "ipfs-unixfs": "6.0.6"
+  "dependencies": {
+    "@polkadot/api": "^4.9.2",
+    "@sora-substrate/type-definitions": "^1.6.9",
+    "bignumber.js": "^9.0.1"
   }
 }
