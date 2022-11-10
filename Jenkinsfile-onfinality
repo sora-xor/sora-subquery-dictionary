@@ -135,7 +135,7 @@ pipeline {
                        --querySubscription \
                        --ipfsCID=\$RESULT \
                        --projectName=${matrix_chain} \
-                       --endpoint=wss://ws.framenode-${endpoint}.sora2.soramitsu.co.jp
+                       --endpoint=wss://${endpoint}
                        --type=stage
                        echo "New deployment in staging slot is executed"
                     """
