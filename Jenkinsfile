@@ -7,6 +7,6 @@ def pipeline = new org.js.AppPipeline(
     dockerImageName:    'sora2/subquery',
     buildDockerImage:   'docker.soramitsu.co.jp/build-tools/node:14-ubuntu',
     preBuildCmds:       ['yarn install', 'yarn codegen'],
-    dockerImageTags:    ['prod': 'dict-prod']
+    dockerImageTags:    ['feature/dops-2062/prod_dict': 'dict-prod']
 )
 pipeline.runPipeline()
