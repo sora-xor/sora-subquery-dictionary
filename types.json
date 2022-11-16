@@ -53,6 +53,7 @@
         "tip": "Compact<Balance>",
         "target_asset_id": "AssetId"
     },
+    "ContentSource": "Vec<u8>",
     "CurrencyId": "AssetId",
     "CurrencyIdEncoded": {
         "_enum": {
@@ -71,6 +72,7 @@
         "default_fee": "BasisPoints",
         "default_protocol_fee": "BasisPoints"
     },
+    "Description": "Vec<u8>",
     "DispatchErrorWithPostInfoTPostDispatchInfo": {
         "post_info": "PostDispatchInfo",
         "error": "DispatchError"
@@ -261,6 +263,12 @@
         "kind": "IncomingTransactionRequestKind",
         "network_id": "BridgeNetworkId"
     },
+    "LockInfo": {
+        "pool_tokens": "Balance",
+        "unlocking_block": "BlockNumber",
+        "asset_a": "AssetId",
+        "asset_b": "AssetId"
+    },
     "LookupSource": "AccountId",
     "MarketMakerInfo": {
         "count": "u32",
@@ -280,10 +288,7 @@
     },
     "MultiCurrencyBalance": "Balance",
     "MultiCurrencyBalanceOf": "MultiCurrencyBalance",
-    "MultisigAccount": {
-        "signatories": "Vec<AccountId>",
-        "threshold": "u8"
-    },
+    "MultisigAccount": "Null",
     "OffchainRequest": {
         "_enum": {
             "Outgoing": "(OutgoingRequest, H256)",
@@ -525,6 +530,10 @@
         "v": "u8"
     },
     "SmoothPriceState": "Null",
+    "StakingInfo": {
+        "deposited": "Balance",
+        "rewards": "Balance"
+    },
     "StorageVersion": "Null",
     "SwapAction": "Null",
     "SwapAmount": {
@@ -589,6 +598,7 @@
         "base_asset_id": "AssetId",
         "target_asset_id": "AssetId"
     },
-    "ValidationFunction": "Null"
+    "ValidationFunction": "Null",
+    "Timepoint": "BridgeTimepoint"
   }
 }
