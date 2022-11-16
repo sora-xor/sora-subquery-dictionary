@@ -53,6 +53,7 @@
         "tip": "Compact<Balance>",
         "target_asset_id": "AssetId"
     },
+    "ContentSource": "Vec<u8>",
     "CurrencyId": "AssetId",
     "CurrencyIdEncoded": {
         "_enum": {
@@ -71,6 +72,7 @@
         "default_fee": "BasisPoints",
         "default_protocol_fee": "BasisPoints"
     },
+    "Description": "Vec<u8>",
     "DispatchErrorWithPostInfoTPostDispatchInfo": {
         "post_info": "PostDispatchInfo",
         "error": "DispatchError"
@@ -260,6 +262,12 @@
         "timepoint": "BridgeTimepoint",
         "kind": "IncomingTransactionRequestKind",
         "network_id": "BridgeNetworkId"
+    },
+    "LockInfo": {
+        "pool_tokens": "Balance",
+        "unlocking_block": "BlockNumber",
+        "asset_a": "AssetId",
+        "asset_b": "AssetId"
     },
     "LookupSource": "AccountId",
     "MarketMakerInfo": {
@@ -525,6 +533,10 @@
         "v": "u8"
     },
     "SmoothPriceState": "Null",
+    "StakingInfo": {
+        "deposited": "Balance",
+        "rewards": "Balance"
+    },
     "StorageVersion": "Null",
     "SwapAction": "Null",
     "SwapAmount": {
