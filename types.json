@@ -17,9 +17,9 @@
     },
     "AssetKind": {
       "_enum": [
-        "Thischain",
-        "Sidechain",
-        "SidechainOwned"
+          "Thischain",
+          "Sidechain",
+          "SidechainOwned"
       ]
     },
     "AssetName": "Vec<u8>",
@@ -36,8 +36,8 @@
     "BridgeNetworkId": "u32",
     "BridgeStatus": {
       "_enum": [
-        "Initialized",
-        "Migrating"
+          "Initialized",
+          "Migrating"
       ]
     },
     "BridgeTimepoint": {
@@ -46,15 +46,14 @@
     },
     "ChangePeersContract": {
       "_enum": [
-        "XOR",
-        "VAL"
+          "XOR",
+          "VAL"
       ]
     },
     "ChargeFeeInfo": {
       "tip": "Compact<Balance>",
       "target_asset_id": "AssetId"
     },
-    "ContentSource": "Vec<u8>",
     "CurrencyId": "AssetId",
     "CurrencyIdEncoded": {
       "_enum": {
@@ -73,7 +72,6 @@
       "default_fee": "BasisPoints",
       "default_protocol_fee": "BasisPoints"
     },
-    "Description": "Vec<u8>",
     "DispatchErrorWithPostInfoTPostDispatchInfo": {
       "post_info": "PostDispatchInfo",
       "error": "DispatchError"
@@ -83,8 +81,8 @@
     "Duration": "Null",
     "EthBridgeStorageVersion": {
       "_enum": [
-        "V1",
-        "V2RemovePendingTransfers"
+          "V1",
+          "V2RemovePendingTransfers"
       ]
     },
     "EthPeersSync": {
@@ -97,9 +95,9 @@
     "Farmer": "Null",
     "FilterMode": {
       "_enum": [
-        "Disabled",
-        "ForbidSelected",
-        "AllowSelected"
+          "Disabled",
+          "ForbidSelected",
+          "AllowSelected"
       ]
     },
     "Fixed": "FixedU128",
@@ -114,7 +112,7 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingCancelOutgoingRequest": {
@@ -125,7 +123,7 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingChangePeers": {
@@ -135,7 +133,7 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingChangePeersCompat": {
@@ -146,7 +144,7 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingMarkAsDoneRequest": {
@@ -154,13 +152,13 @@
       "initial_request_hash": "H256",
       "author": "AccountId",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingMetaRequestKind": {
       "_enum": [
-        "CancelOutgoingRequest",
-        "MarkAsDone"
+          "CancelOutgoingRequest",
+          "MarkAsDone"
       ]
     },
     "IncomingMigrate": {
@@ -168,14 +166,14 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingPrepareForMigration": {
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "IncomingRequest": {
@@ -197,15 +195,15 @@
     },
     "IncomingTransactionRequestKind": {
       "_enum": [
-        "Transfer",
-        "AddAsset",
-        "AddPeer",
-        "RemovePeer",
-        "PrepareForMigration",
-        "Migrate",
-        "AddPeerCompat",
-        "RemovePeerCompat",
-        "TransferXOR"
+          "Transfer",
+          "AddAsset",
+          "AddPeer",
+          "RemovePeer",
+          "PrepareForMigration",
+          "Migrate",
+          "AddPeerCompat",
+          "RemovePeerCompat",
+          "TransferXOR"
       ]
     },
     "IncomingTransfer": {
@@ -217,7 +215,7 @@
       "author": "AccountId",
       "tx_hash": "H256",
       "at_height": "u64",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "network_id": "BridgeNetworkId"
     },
     "Keys": "SessionKeys3",
@@ -234,20 +232,19 @@
     },
     "LiquiditySourceType": {
       "_enum": [
-        "XYKPool",
-        "BondingCurvePool",
-        "MulticollateralBondingCurvePool",
-        "MockPool",
-        "MockPool2",
-        "MockPool3",
-        "MockPool4",
-        "XSTPool"
+          "XYKPool",
+          "BondingCurvePool",
+          "MulticollateralBondingCurvePool",
+          "MockPool",
+          "MockPool2",
+          "MockPool3",
+          "MockPool4"
       ]
     },
     "LoadIncomingMetaRequest": {
       "author": "AccountId",
       "hash": "H256",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "kind": "IncomingMetaRequestKind",
       "network_id": "BridgeNetworkId"
     },
@@ -260,15 +257,9 @@
     "LoadIncomingTransactionRequest": {
       "author": "AccountId",
       "hash": "H256",
-      "timepoint": "BridgeTimepoint",
+      "timepoint": "Timepoint",
       "kind": "IncomingTransactionRequestKind",
       "network_id": "BridgeNetworkId"
-    },
-    "LockInfo": {
-      "pool_tokens": "Balance",
-      "unlocking_block": "BlockNumber",
-      "asset_a": "AssetId",
-      "asset_b": "AssetId"
     },
     "LookupSource": "AccountId",
     "MarketMakerInfo": {
@@ -277,8 +268,8 @@
     },
     "Mode": {
       "_enum": [
-        "Permit",
-        "Forbid"
+          "Permit",
+          "Forbid"
       ]
     },
     "MultiChainHeight": {
@@ -289,10 +280,7 @@
     },
     "MultiCurrencyBalance": "Balance",
     "MultiCurrencyBalanceOf": "MultiCurrencyBalance",
-    "MultisigAccount": {
-      "signatories": "Vec<AccountId>",
-      "threshold": "u8"
-    },
+    "MultisigAccount": "Null",
     "OffchainRequest": {
       "_enum": {
         "Outgoing": "(OutgoingRequest, H256)",
@@ -307,7 +295,7 @@
       "supply": "Balance",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingAddAssetEncoded": {
       "name": "String",
@@ -325,7 +313,7 @@
       "peer_account_id": "AccountId",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingAddPeerCompat": {
       "author": "AccountId",
@@ -333,7 +321,7 @@
       "peer_account_id": "AccountId",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingAddPeerEncoded": {
       "peer_address": "EthereumAddress",
@@ -349,7 +337,7 @@
       "decimals": "u8",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingAddTokenEncoded": {
       "token_address": "EthereumAddress",
@@ -366,7 +354,7 @@
       "erc20_native_tokens": "Vec<EthereumAddress>",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingMigrateEncoded": {
       "this_contract_address": "EthereumAddress",
@@ -380,7 +368,7 @@
       "author": "AccountId",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingPrepareForMigrationEncoded": {
       "this_contract_address": "EthereumAddress",
@@ -394,7 +382,7 @@
       "peer_address": "EthereumAddress",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingRemovePeerCompat": {
       "author": "AccountId",
@@ -402,7 +390,7 @@
       "peer_address": "EthereumAddress",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingRemovePeerEncoded": {
       "peer_address": "EthereumAddress",
@@ -439,7 +427,7 @@
       "amount": "Balance",
       "nonce": "Index",
       "network_id": "BridgeNetworkId",
-      "timepoint": "BridgeTimepoint"
+      "timepoint": "Timepoint"
     },
     "OutgoingTransferEncoded": {
       "currency_id": "CurrencyIdEncoded",
@@ -451,40 +439,12 @@
       "raw": "Vec<u8>"
     },
     "OwnerId": "AccountId",
-    "PendingMultisigAccount": {
-      "approving_accounts": "Vec<AccountId>",
-      "migrate_at": "Option<BlockNumber>"
-    },
+    "PendingMultisigAccount": "Null",
     "Permission": "Null",
     "PermissionId": "u32",
-    "PoolFarmer": {
-      "account": "AccountId",
-      "block": "BlockNumber",
-      "weight": "Balance"
-    },
     "PostDispatchInfo": {
       "actual_weight": "Option<Weight>",
       "pays_fee": "Pays"
-    },
-    "PredefinedAssetId": {
-      "_enum": [
-        "XOR",
-        "DOT",
-        "KSM",
-        "USDT",
-        "VAL",
-        "PSWAP",
-        "DAI",
-        "ETH",
-        "XSTUSD"
-      ]
-    },
-    "PriceInfo": {
-      "price_failures": "u32",
-      "spot_prices": "Vec<Balance>",
-      "average_price": "Balance",
-      "needs_update": "bool",
-      "last_spot_price": "Balance"
     },
     "Public": "[u8; 33]",
     "QuoteAmount": {
@@ -502,11 +462,11 @@
     "RefCount": "u32",
     "RequestStatus": {
       "_enum": [
-        "Pending",
-        "Frozen",
-        "ApprovalsReady",
-        "Failed",
-        "Done"
+          "Pending",
+          "Frozen",
+          "ApprovalsReady",
+          "Failed",
+          "Done"
       ]
     },
     "RewardInfo": {
@@ -516,10 +476,8 @@
     },
     "RewardReason": {
       "_enum": [
-        "Unspecified",
-        "BuyOnBondingCurve",
-        "LiquidityProvisionFarming",
-        "MarketMakerVolume"
+          "Unspecified",
+          "BuyOnBondingCurve"
       ]
     },
     "Scope": {
@@ -534,10 +492,6 @@
       "v": "u8"
     },
     "SmoothPriceState": "Null",
-    "StakingInfo": {
-      "deposited": "Balance",
-      "rewards": "Balance"
-    },
     "StorageVersion": "Null",
     "SwapAction": "Null",
     "SwapAmount": {
@@ -556,8 +510,8 @@
     },
     "SwapVariant": {
       "_enum": [
-        "WithDesiredInput",
-        "WithDesiredOutput"
+          "WithDesiredInput",
+          "WithDesiredOutput"
       ]
     },
     "SwapWithDesiredInput": {
@@ -578,26 +532,18 @@
         "WrappedRepr": "AccountId"
       }
     },
+    "TechAccountIdPrimitive": "Null",
     "TechAmount": "Amount",
-    "TechAssetId": {
-      "_enum": {
-        "Wrapped": "PredefinedAssetId",
-        "Escaped": "AssetId"
-      }
-    },
+    "TechAssetId": "Null",
     "TechBalance": "Balance",
     "TechPurpose": {
       "_enum": {
         "FeeCollector": "Null",
-        "FeeCollectorForPair": "TechTradingPair",
-        "LiquidityKeeper": "TechTradingPair",
+        "LiquidityKeeper": "TradingPair",
         "Identifier": "Vec<u8>"
       }
     },
-    "TechTradingPair": {
-      "base_asset_id": "TechAssetId",
-      "target_asset_id": "TechAssetId"
-    },
+    "Timepoint": "BridgeTimepoint",
     "TradingPair": {
       "base_asset_id": "AssetId",
       "target_asset_id": "AssetId"
