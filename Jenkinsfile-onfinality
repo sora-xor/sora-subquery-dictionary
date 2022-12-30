@@ -3,8 +3,8 @@
 String agentLabel        = 'docker-build-agent'
 String envImageName      = 'node:16.18.1-bullseye-slim'
 String subqueryToken     = 'subquery-token'
-String targetEnvironment =  'prod'
-String jobList           = '../sora2-' + targetEnvironment
+String targetEnvironment =  ''
+String jobList           = ''
 List   jobParams         = [
     string(defaultValue: targetEnvironment, name: 'targetEnvironment', trim: true),
     booleanParam(defaultValue: false, name: 'fullClean'),
@@ -110,7 +110,7 @@ pipeline {
                        --org=${SUBQUERY_ORG} \
                        --indexerSubscription \
                        --querySubscription \
-                       --dict=dict \
+                       --useDefaults \
                        --ipfsCID=\$RESULT \
                        --projectName=${matrix_chain} \
                        --endpoint=wss://${endpoint}
@@ -134,7 +134,7 @@ pipeline {
                        --indexerVersion=${SUBQUERY_INDEXER_VERSION_STAGING} \
                        --queryVersion=${SUBQUERY_NODE_VERSION_STAGING} \
                        --org=${SUBQUERY_ORG} \
-                       --dict=dict \
+                       --useDefaults \
                        --indexerSubscription \
                        --querySubscription \
                        --ipfsCID=\$RESULT \
