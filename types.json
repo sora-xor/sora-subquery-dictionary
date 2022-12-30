@@ -22,7 +22,7 @@
             ]
         },
         "bridgeMultisig": {
-            "timepoint": "BridgeTimepoint" 
+            "Timepoint": "BridgeTimepoint" 
         },
         "AssetName": "Vec<u8>",
         "AssetNameStr": "String",
