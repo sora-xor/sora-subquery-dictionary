@@ -21,6 +21,11 @@
                 "SidechainOwned"
             ]
         },
+        "typesAlias": { 
+            "bridgeMultisig": { 
+                "Timepoint": "BridgeTimepoint" 
+            } 
+        },
         "AssetName": "Vec<u8>",
         "AssetNameStr": "String",
         "AssetRecord": "Null",
@@ -592,5 +597,6 @@
             "target_asset_id": "AssetId"
         },
         "ValidationFunction": "Null"
+        
     }
   }
