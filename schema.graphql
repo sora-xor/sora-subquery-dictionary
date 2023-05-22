@@ -8,10 +8,7 @@ type Event @entity {
   module: String! @index
   event: String! @index
   blockHeight: BigInt! @index
-}
-
-type Args @jsonField {
-  test: String
+  details: Details
 }
 
 type Extrinsic @entity {
@@ -22,5 +19,9 @@ type Extrinsic @entity {
   blockHeight: BigInt! @index
   success: Boolean!
   isSigned: Boolean!
-  args: Args
+  details: Details
+}
+
+type Details @jsonField {
+  data: String # API is implemented by bypassing the scheme - `data` in all mappings is an object, not a String. See https://github.com/subquery/subql/issues/522.
 }

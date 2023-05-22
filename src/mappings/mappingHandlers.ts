@@ -50,6 +50,7 @@ function handleEvent(
   newEvent.blockHeight = BigInt(blockNumber);
   newEvent.module = event.event.section;
   newEvent.event = event.event.method;
+  newEvent.details = event.event.data as Object;
   return newEvent;
 }
 
@@ -61,6 +62,7 @@ function handleCall(idx: string, extrinsic: SubstrateExtrinsic): Extrinsic {
   newExtrinsic.blockHeight = extrinsic.block.block.header.number.toBigInt();
   newExtrinsic.success = extrinsic.success;
   newExtrinsic.isSigned = extrinsic.extrinsic.isSigned;
+  newExtrinsic.details = extrinsic.extrinsic.args as Object;
   return newExtrinsic;
 }
 

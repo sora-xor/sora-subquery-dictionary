@@ -28,20 +28,20 @@ services:
       - --log-level=debug
       - --subscription
 
-  graphql-engine:
-    image: onfinality/subql-query:v1.5.0
-    ports:
-      - 3000:3000
-    depends_on:
-      - postgres
-    restart: always
-    environment:
-      DB_USER: postgres
-      DB_PASS: postgres
-      DB_DATABASE: postgres
-      DB_HOST: postgres
-      DB_PORT: 5432
-    command:
-      - --name=app
-      - --playground
-      - --subscription
+  # graphql-engine:
+  #   image: onfinality/subql-query:v1.5.0
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - postgres
+  #   restart: always
+  #   environment:
+  #     DB_USER: postgres
+  #     DB_PASS: postgres
+  #     DB_DATABASE: postgres
+  #     DB_HOST: postgres
+  #     DB_PORT: 5432
+  #   command:
+  #     - --name=app
+  #     - --playground
+  #     - --subscription
