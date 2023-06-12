@@ -1,8 +1,6 @@
 import { EventRecord } from "@polkadot/types/interfaces";
 import { SubstrateExtrinsic, SubstrateBlock } from "@subql/types";
 import { SpecVersion, Event, Extrinsic } from "../types";
-import { AnyTuple, CallBase } from '@polkadot/types/types';
-import { Vec } from '@polkadot/types';
 
 let specVersion: SpecVersion;
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
@@ -22,11 +20,18 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
   const events = block.events
     .filter(
       (evt) =>
-        !(evt.event.section === "system" &&
-          evt.event.method === "ExtrinsicSuccess")
+        !(
+          evt.event.section === "system" &&
+          evt.event.method === "ExtrinsicSuccess"
+        )
     )
     .map((evt, idx) =>
-      handleEvent(block.block.header.number.toString(), idx, evt)
+      handleEvent(
+        block.block.header.number.toString(),
+        block.timestamp,
+        idx,
+        evt
+      )
     );
 
   // Process all calls in block
@@ -43,13 +48,16 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
 function handleEvent(
   blockNumber: string,
+  blockTimestamp: Date,
   eventIdx: number,
   event: EventRecord
 ): Event {
   const newEvent = new Event(`${blockNumber}-${eventIdx}`);
   newEvent.blockHeight = BigInt(blockNumber);
   newEvent.module = event.event.section;
-  newEvent.event = event.event.method;
+  newEvent.method = event.event.method;
+  newEvent.params = event.event.data.toHuman() as Object;
+  newEvent.timestamp = blockTimestamp;
   return newEvent;
 }
 
@@ -57,10 +65,14 @@ function handleCall(idx: string, extrinsic: SubstrateExtrinsic): Extrinsic {
   const newExtrinsic = new Extrinsic(idx);
   newExtrinsic.txHash = extrinsic.extrinsic.hash.toString();
   newExtrinsic.module = extrinsic.extrinsic.method.section;
-  newExtrinsic.call = extrinsic.extrinsic.method.method;
+  newExtrinsic.method = extrinsic.extrinsic.method.method;
   newExtrinsic.blockHeight = extrinsic.block.block.header.number.toBigInt();
   newExtrinsic.success = extrinsic.success;
   newExtrinsic.isSigned = extrinsic.extrinsic.isSigned;
+  newExtrinsic.timestamp = extrinsic.block.timestamp;
+  newExtrinsic.details = JSON.parse(
+    JSON.stringify(extrinsic.extrinsic.toHuman())
+  ).method.args as Object;
   return newExtrinsic;
 }
 
