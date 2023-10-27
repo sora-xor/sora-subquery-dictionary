@@ -1,21 +1,43 @@
+# // Auto-generated , DO NOT EDIT
 specVersion: 1.0.0
-name: sora-subquery-dictionary
-version: 1.0.0
+version: 0.0.1
+name: polkadot-starter
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
 runner:
   node:
     name: '@subql/node'
-    version: 1.9.1
+    version: '>=3.0.1'
   query:
     name: '@subql/query'
-    version: 1.5.0
-description: ''
-repository: https://github.com/sora-xor/sora-subquery
+    version: '*'
 schema:
   file: ./schema.graphql
 network:
   chainId: '0x7e4e32d0feafd4f9c9414b0be86373f9a1efa904809b683453a9af6856d38ad5'
-  endpoint: wss://mof3.sora.org
-  bypassBlocks: [9633, 14855, 15156, 15663, 25432, 25467, 26157, 27521, 27601, 240175, 242625, 246858, 247995, 258152, 263341, 268943, 282439, 319553, 322075]
+  endpoint:
+    - wss://mof3.sora.org
+  bypassBlocks:
+    - 9633
+    - 14855
+    - 15156
+    - 15663
+    - 25432
+    - 25467
+    - 26157
+    - 27521
+    - 27601
+    - 240175
+    - 242625
+    - 246858
+    - 247995
+    - 258152
+    - 263341
+    - 268943
+    - 282439
+    - 319553
+    - 322075
   chaintypes:
     file: ./types.json
 dataSources:
@@ -24,5 +46,5 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
+        - kind: substrate/BlockHandler
+          handler: handleBlock
