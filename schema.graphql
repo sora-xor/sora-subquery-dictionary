@@ -17,6 +17,7 @@ type Extrinsic @entity {
   txHash: String! @index
   module: String! @index
   method: String! @index
+  signer: String!
   blockHeight: BigInt! @index
   success: Boolean!
   isSigned: Boolean!

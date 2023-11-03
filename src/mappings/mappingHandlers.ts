@@ -90,6 +90,7 @@ function handleCall(idx: string, extrinsic: SubstrateExtrinsic): Extrinsic {
     timestamp: extrinsic.block.timestamp,
     details: JSON.parse(JSON.stringify(extrinsic.extrinsic.toHuman())).method
       .args,
+    signer: extrinsic.extrinsic.signer.toString(),
   });
   return newExtrinsic;
 }
