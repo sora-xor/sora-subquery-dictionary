@@ -1,15 +1,15 @@
 {
-  "name": "sora-subquery-dictionary",
+  "name": "sora-dictionary-latest-dependencies",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
-    "prepack": "rm -rf dist && npm build",
-    "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen",
-    "generate:defs": "ts-node --skip-project node_modules/.bin/polkadot-types-from-defs --package sora/api-interfaces --input ./src/api-interfaces/",
-    "generate:meta": "ts-node --skip-project node_modules/.bin/polkadot-types-from-chain --package sora/api-interfaces --endpoint ./src/api-interfaces/sora.json --output ./src/api-interfaces"
+    "build": "subql build",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "subql build && subql-node test"
   },
   "homepage": "https://github.com/subquery/subql-starter",
   "repository": "github:subquery/subql-starter",
@@ -18,19 +18,16 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Soramitsu",
-  "license": "Apache-2.0",
+  "author": "SubQuery Team",
+  "license": "MIT",
   "devDependencies": {
-    "@polkadot/typegen": "^4.9.2",
-    "@subql/cli": "0.23.0",
-    "@subql/node": "0.23.1",
-    "@subql/types": "^0.14.0",
-    "ts-node": "^8.6.2",
-    "typescript": "^4.1.3"
+    "@polkadot/api": "^10",
+    "@subql/cli": "latest",
+    "@subql/testing": "latest",
+    "@subql/types": "latest",
+    "typescript": "^5.2.2"
   },
-  "dependencies": {
-    "@polkadot/api": "^4.9.2",
-    "@sora-substrate/type-definitions": "^1.6.9",
-    "bignumber.js": "^9.0.1"
+  "resolutions": {
+    "ipfs-unixfs": "6.0.6"
   }
 }
