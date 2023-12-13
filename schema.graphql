@@ -12,6 +12,10 @@ type Event @entity {
   timestamp: Date!
 }
 
+type TechnicalAccount @entity {
+  id: ID!
+}
+
 type Extrinsic @entity {
   id: ID!
   txHash: String! @index
