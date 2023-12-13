@@ -67,6 +67,13 @@ const project: SubstrateProject = {
             kind: SubstrateHandlerKind.Block,
             handler: "handleBlock",
           },
+          {
+            kind: SubstrateHandlerKind.Block,
+            handler: "handleTechnicalAccountsUpdate",
+            filter: {
+              modulo: 100000,
+            },
+          },
         ],
       },
     },

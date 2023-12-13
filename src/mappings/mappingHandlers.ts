@@ -1,6 +1,6 @@
 import { EventRecord } from "@polkadot/types/interfaces";
 import { SubstrateExtrinsic, SubstrateBlock } from "@subql/types";
-import { SpecVersion, Event, Extrinsic } from "../types";
+import { SpecVersion, Event, Extrinsic, TechnicalAccount } from "../types";
 
 let specVersion: SpecVersion | undefined;
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
@@ -109,4 +109,24 @@ function wrapExtrinsics(wrappedBlock: SubstrateBlock): SubstrateExtrinsic[] {
         events.findIndex((evt) => evt.event.method === "ExtrinsicSuccess") > -1,
     };
   });
+}
+
+export async function handleTechnicalAccountsUpdate(
+  block: SubstrateBlock
+): Promise<void> {
+  logger.info("Updating a list of technical accounts");
+  let technicalAccounts = await api.query.technical.techAccounts.entries();
+
+  if (technicalAccounts) {
+    const processAccounts = async () => {
+      for (const [key, value] of technicalAccounts) {
+        let technicalAccount = TechnicalAccount.create({
+          id: key.args[0].toString(),
+        });
+        await technicalAccount.save();
+      }
+    };
+
+    processAccounts();
+  }
 }
