@@ -4,10 +4,10 @@ version: 1.0.0
 runner:
   node:
     name: '@subql/node'
-    version: 1.9.1
+    version: '*'
   query:
     name: '@subql/query'
-    version: 1.5.0
+    version: '*'
 description: ''
 repository: https://github.com/sora-xor/sora-subquery
 schema:
@@ -19,7 +19,7 @@ network:
     file: ./types.json
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 8035052
     mapping:
       file: ./dist/index.js
       handlers:
