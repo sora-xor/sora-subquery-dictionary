@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/mappings/mappinghandlers.ts","./src/types/index.ts","./src/types/models/event.ts","./src/types/models/extrinsic.ts","./src/types/models/specversion.ts","./src/types/models/index.ts","./node_modules/@subql/types/dist/global.d.ts"],"version":"5.6.2"}
