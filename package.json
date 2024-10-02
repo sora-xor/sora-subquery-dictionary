@@ -8,6 +8,7 @@
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
+    "config:chainId": "node ./scripts/chainId.mjs",
     "publish:all": "bash scripts/publish-manifest.sh",
     "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
