@@ -52,5 +52,7 @@ Thumbs.db
 .idea
 .data
 
+.env
+
 # Yarn lock
 yarn.lock
