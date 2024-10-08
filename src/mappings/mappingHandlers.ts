@@ -23,7 +23,7 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
         evt.event.method === "ExtrinsicSuccess")
     )
     .map((evt, idx) =>
-      handleEvent(block.block.header.number.toString(), idx, evt, block)
+      handleEvent(block.block.header.number.toString(), idx, evt)
     );
 
   // Process all calls in block
@@ -45,16 +45,12 @@ function handleEvent(
   blockNumber: string,
   eventIdx: number,
   event: EventRecord,
-  block: SubstrateBlock,
 ): Event {
   return Event.create({
     id: `${blockNumber}-${eventIdx}`,
     blockHeight: BigInt(blockNumber),
     module: event.event.section,
     event: event.event.method,
-    // deprecated
-    params: event.event.data.toHuman() as Object,
-    timestamp: block.timestamp,
   });
 }
 
@@ -67,11 +63,6 @@ function handleCall(idx: string, extrinsic: SubstrateExtrinsic): Extrinsic {
     blockHeight: extrinsic.block.block.header.number.toBigInt(),
     success: extrinsic.success,
     isSigned: extrinsic.extrinsic.isSigned,
-    // deprecated
-    timestamp: extrinsic.block.timestamp,
-    details: JSON.parse(JSON.stringify(extrinsic.extrinsic.toHuman())).method
-      .args,
-    signer: extrinsic.extrinsic.signer.toString(),
   });
 }
 

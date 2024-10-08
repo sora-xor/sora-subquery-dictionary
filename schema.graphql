@@ -8,8 +8,6 @@ type Event @entity {
   module: String! @index
   event: String! @index
   blockHeight: BigInt! @index
-  params: Details # deprecated
-  timestamp: Date # deprecated
 }
 
 type Extrinsic @entity {
@@ -20,11 +18,5 @@ type Extrinsic @entity {
   blockHeight: BigInt! @index
   success: Boolean!
   isSigned: Boolean!
-  signer: String # deprecated
-  details: Details # deprecated
-  timestamp: Date # deprecated
 }
 
-type Details @jsonField {
-  data: String # API is implemented by bypassing the scheme - `data` in all mappings is an object, not a String. See https://github.com/subquery/subql/issues/522.
-}
