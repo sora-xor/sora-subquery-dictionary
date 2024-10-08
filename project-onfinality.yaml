@@ -7,7 +7,6 @@ runner:
     version: 5.2.5
     options:
       unfinalizedBlocks: false
-      historical: false
   query:
     name: '@subql/query'
     version: 2.15.1
