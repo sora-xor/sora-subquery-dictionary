@@ -12,17 +12,9 @@
     "rootDir": "src",
     "target": "es2017",
     "baseUrl": ".",
-    "paths": {
-      "sora/*": [
-        "src/*"
-      ],
-      "@polkadot/api/augment": [
-        "src/api-interfaces/augment-api.ts"
-      ],
-      "@polkadot/types/augment": [
-        "src/api-interfaces/augment-types.ts"
-      ]
-    }
+    "lib": [
+      "ES2021.String"
+    ]
   },
   "include": [
     "src/**/*",

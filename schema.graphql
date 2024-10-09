@@ -10,10 +10,6 @@ type Event @entity {
   blockHeight: BigInt! @index
 }
 
-type Args @jsonField {
-  test: String
-}
-
 type Extrinsic @entity {
   id: ID!
   txHash: String! @index
@@ -22,5 +18,5 @@ type Extrinsic @entity {
   blockHeight: BigInt! @index
   success: Boolean!
   isSigned: Boolean!
-  args: Args
 }
+
